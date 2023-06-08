@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Category</title>
+</head>
+<body>
+Add Category Name
+<form method="post" action ="saveCategory">
+<fieldset>
+<legend>Login</legend><br/>
+Name: <input type="text" name="category_name" id="category_name"/><br/><br/>
+Created By: <input type="text" name="category_createdBy" id="category_createdBy"/><br/><br/>
+Created Date: <input type="date" name="category_createdDate" id="category_createdDate"/><br/><br/>
+<input type="submit" value="Add"/>
+</fieldset>
+</form>
+<br/><br/>
+<h2 th:text="${confirm}"></h2>
+<br/><br/>
+<Button onclick="location.href='adminHome'">Go to Admin Home</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</body>
+</html>

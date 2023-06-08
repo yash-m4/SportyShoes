@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase List</title>
+</head>
+<body>
+    <h1>Purchase List</h1>
+
+    <form action="viewPurchaseList" method="get">
+        <label for="username">Filter by Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter username">
+        <button type="submit">Filter</button>
+    </form>
+    <br/><br/>
+    <form action="viewPurchaseList" method="get">
+        <label for="purchaseDate">Filter by Purchase Date:</label>
+        <input type="date" id="purchaseDate" name="purchaseDate">
+        <button type="submit">Filter</button>
+    </form>
+<br/><br/>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="entry : ${userProductMap}">
+                <td th:text="${entry.key.username}"></td>
+                <td>
+                    <ul>
+                        <li th:each="product : ${entry.value}" th:text="${product.product_name}"></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li th:each="product : ${entry.value}" th:text="${product.product_price}"></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li th:each="product : ${entry.value}" th:text="${product.product_description}"></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+<Button onclick="location.href='adminHome'">Go to Admin Home</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</body>
+</html>

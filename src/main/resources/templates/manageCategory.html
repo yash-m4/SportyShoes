@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Manage Categories</h1>
+<div>
+<table>
+<tr>
+<th>Category</th>
+<th>Id</th>
+</tr>
+ <tr th:each="category: ${category}">
+      <td th:text="${category.category_name}"></td>
+      <td th:text="${category.category_id}"></td>
+    </tr>
+</table>
+</div>
+
+<form method="post" action ="deleteCategory">
+<fieldset>
+<legend>Enter Category Id to Delete</legend><br/>
+Category ID: <input type="number" name="category_id" id="category_id"/><br/><br/>
+<input type="submit" value="Delete"/>
+</fieldset>
+</form>
+
+<h2 th:text="${deleted}"></h2>
+
+<h3>Show Products in a Category</h3>
+<div>
+<form method=post action ="showProductsByCategory">
+<select name=category>
+<option th:each="category: ${category}" th:text="${category.category_name}" th:value="${category.category_id}"/>
+</select>
+<input type=submit value=Submit id='submit'>
+</form>
+</div>
+<br/><br/>
+<Button onclick="location.href='adminHome'">Go to Admin Home</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+</head>
+<body>
+    <h1>Payment Confirmed</h1>
+
+    <h2>Product Details</h2>
+    <p>Product Name: <span th:text="${product.product_name}"></span></p>
+    <p>Product Price: <span th:text="${product.product_price}"></span></p>
+    <p>Product Description: <span th:text="${product.product_description}"></span></p>
+
+    <h2>User Details</h2>
+    <p>Username: <span th:text="${user.username}"></span></p>
+    <p>Email: <span th:text="${user.email}"></span></p>
+    <p>Phone: <span th:text="${user.phone}"></span></p>
+
+    <h2>Thank You For Using Sporty Shoes</h2>
+    <p>Thank you for your purchase. An email confirmation will be sent to your registered email address shortly.</p>
+<br/><br/>
+<Button onclick="location.href='Login'">Go to Login</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</body>
+</html>

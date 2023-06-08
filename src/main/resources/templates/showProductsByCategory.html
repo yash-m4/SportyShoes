@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Products By Category</h1>
+<div>
+<table>
+<tr>
+<th>Product</th>
+<th>Id</th>
+<th>Price</th>
+<th>Description</th>
+<th>Added By</th>
+<th>Added Date</th>
+<th>Image</th>
+</tr>
+ <tr th:each="product : ${category.products}">
+            <td th:text="${product.product_name}"></td>
+            <td th:text="${product.product_id}"></td>
+            <td th:text="${product.product_price}"></td>
+            <td th:text="${product.product_description}"></td>
+            <td th:text="${product.product_addedBy}"></td>
+            <td th:text="${product.product_addedDate}"></td>
+            
+        </tr>
+</table>
+</div>
+<br/><br/>
+<Button onclick="location.href='adminHome'">Go to Admin Home</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</body>
+</html>

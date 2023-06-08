@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Select Category To view its Products</h1>
+<div>
+<form method=post action ="showProductsByCategoryToDelete">
+<select name=category>
+<option th:each="category: ${category}" th:text="${category.category_name}" th:value="${category.category_id}"/>
+</select>
+<input type=submit value=Submit id='submit'>
+</form>
+</div>
+</body>
+</html>

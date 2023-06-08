@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+</head>
+<body>
+    <h1>User List</h1>
+    
+    <form action="viewUserList" method="get">
+        <label for="searchUsername">Search by Username:</label>
+        <input type="text" id="searchUsername" name="username" placeholder="Enter username">
+        <button type="submit">Search</button>
+    </form>
+    </br>
+    <div>
+        <table>
+            <tr>
+                <th>UserId</th>
+                <th>Username</th>
+                <th>Email Id</th>
+                <th>Password</th>
+                <th>Status</th>
+                <th>Created Date</th>
+                <th>Security Question</th>
+                <th>Security Answer</th>
+                <th>Phone Number</th>
+            </tr>
+            <tr th:each="user : ${user}">
+                <td th:text="${user.user_id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.user_status}"></td>
+                <td th:text="${user.user_createdDate}"></td>
+                <td th:text="${user.securityQuestion}"></td>
+                <td th:text="${user.securityAnswer}"></td>
+                <td th:text="${user.phone}"></td>
+            </tr>
+        </table>
+    </div>
+    <br/><br/>
+    <button onclick="location.href='adminHome'">Go to Admin Home</button>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Page</title>
+</head>
+<body>
+    <h1>Cart Page</h1>
+<p>Hello</p>
+    <h2 th:text="${user.username}"></h2>
+    <h3>Product Details</h3>
+    <div>
+        <h4>Product Name: <span th:text="${product.product_name}"></span></h4>       
+        <p>Price: <span th:text="${product.product_price}"></span></p>
+        <p>Description: <span th:text="${product.product_description}"></span></p>
+        <!-- Add any other relevant product details you want to display -->
+    </div>
+
+    <form action="checkout" method="post">
+       <input type="hidden" name="productId" th:value="${product.product_id}" />
+     <input type="hidden" name="username" th:value="${user.username}" />
+        <button type="submit">Proceed to Payment</button>
+    </form>
+</body>
+</html>

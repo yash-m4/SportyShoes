@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <style>
+        .product-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 48%; /* Adjust the width as desired */
+            display: inline-block;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+
+        .buy-now-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Home</h1>
+
+    <p>Hello</p>
+    <h2 th:text="${user.username}"></h2>
+
+    <h3>Show Products in a Category</h3>
+    <div>
+        <form method="post" action="showProductsByCategoryUserSide">
+            <select name="category">
+                <option th:each="category: ${category}" th:text="${category.category_name}" th:value="${category.category_id}"></option>
+            </select>
+            <input type="hidden" name="username" th:value="${user.username}" />
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+    <div>
+        <div th:each="product : ${products}" class="product-container">
+            <h4 th:text="${product.product_name}"></h4>
+            <p>Name: <span th:text="${product.product_name}"></span></p>
+            <p>Price: <span th:text="${product.product_price}"></span></p>
+            <p>Description: <span th:text="${product.product_description}"></span></p>
+            <img th:src="@{'data:image/jpeg;base64,' + ${product.imageData}}" width="150" height="150" alt="Image Not Found pls Increase Budget " />
+            <form th:action="cart" method="post">
+   				 <input type="hidden" name="productId" th:value="${product.product_id}" />
+    			 <input type="hidden" name="username" th:value="${user.username}" />
+    			<button class="buy-now-button" type="submit">Buy Now</button>
+		</form>
+
+        </div>
+    </div>
+</body>
+</html>
