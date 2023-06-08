@@ -50,7 +50,7 @@
             <p>Name: <span th:text="${product.product_name}"></span></p>
             <p>Price: <span th:text="${product.product_price}"></span></p>
             <p>Description: <span th:text="${product.product_description}"></span></p>
-            <img th:src="@{'data:image/jpeg;base64,' + ${product.imageData}}" width="150" height="150" alt="Image Not Found pls Increase Budget " />
+            
             <form th:action="cart" method="post">
    				 <input type="hidden" name="productId" th:value="${product.product_id}" />
     			 <input type="hidden" name="username" th:value="${user.username}" />
